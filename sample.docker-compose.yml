@@ -17,7 +17,7 @@ services:
       - CLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-flash
       - API_TIMEOUT_MS=300000
     volumes:
-      - ${PROJECT_PATH}:/workspace # ← Main project directory
+      - ${PROJECT_PATH}:/workspace
       - claude_deepseek_config:/home/claude/.config/claude
     working_dir: /workspace
     stdin_open: true
