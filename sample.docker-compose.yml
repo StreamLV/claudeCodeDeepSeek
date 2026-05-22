@@ -22,6 +22,7 @@ services:
     working_dir: /workspace
     stdin_open: true
     tty: true
+    init: true
 volumes:
   claude_deepseek_config:
     name: claude-deepseek-config
