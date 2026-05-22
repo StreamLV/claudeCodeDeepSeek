@@ -1,6 +1,12 @@
 # claudeCodeDeepSeek
 
-Build: 
+- create docker-compose.yml (copy from sample.docker-compose.yml)
+- create .env file (copy from sample.env)
+
+- update .env file with your DeepSeek API key
+- update PROJECT_PATH in .env file -> your actual project directory path
+
+Build:
 ```bash
 docker compose build
 ```
