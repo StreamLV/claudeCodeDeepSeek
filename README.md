@@ -1,27 +1,86 @@
-# claudeCodeDeepSeek
+# Claude Code + DeepSeek (Docker Setup)
 
-- create docker-compose.yml (copy from sample.docker-compose.yml)
-- create .env file (copy from sample.env)
+This setup runs Claude Code CLI with DeepSeek models inside Docker.
 
-- update .env file with your DeepSeek API key
-- update PROJECT_PATH in .env file -> your actual project directory path
+### Setup
 
-Build:
+1. Copy `sample.docker-compose.yml` → `docker-compose.yml`
+2. Copy `sample.env` → `.env`
+3. Update the `.env` file:
+   - `DEEPSEEK_API_KEY` — your DeepSeek API key
+   - `COMPOSE_PROJECT_NAME` — unique name for this project
+   - `PROJECT_PATH` — path to your project directory (`.` = current folder)
+
+### Build
+
 ```bash
 docker compose build
 ```
 
-Run claude:
+### Run Commands
+
+# Continue last session (recommended)
+```bash
+docker compose run --rm claudecode_deepseek --continue
+```
+
+# Show list of sessions and choose one
+```bash
+docker compose run --rm claudecode_deepseek --resume
+```
+# Start a new clean session
 ```bash
 docker compose run --rm claudecode_deepseek
 ```
 
-Stop containers:
+# Start specific session by ID
+```bash
+docker compose run --rm claudecode_deepseek --resume <session-id>
+```
+
+### Other Useful Commands
+
+# Get USER_ID
+```bash
+id -u
+```
+
+# Get GROUP_ID
+```bash
+id -g
+```
+
+# Stop and remove containers
 ```bash
 docker compose down
 ```
 
-Rebuild containers:
+# Rebuild image (when you change Dockerfile or want clean build)
 ```bash
 docker compose build --no-cache
 ```
+
+# View logs
+```bash
+docker compose logs -f
+```
+
+# Enter running container (if needed)
+```bash
+docker compose exec claudecode_deepseek bash
+```
+
+### Project Structure
+.
+├── Dockerfile
+├── docker-compose.yml
+├── .env
+├── .claude-data/          # Claude sessions (saved here)
+├── .claude-config/        # Claude configuration
+└── README.md
+
+**PROJECT_PATH** (mounted to `/workspace`)
+
+- Session files → `.claude-data/sessions/`
+- Configuration → `.claude-config/`
+- Logs → `.claude-config/logs/`
