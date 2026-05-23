@@ -18,9 +18,16 @@ services:
       - API_TIMEOUT_MS=300000
     volumes:
       - ${PROJECT_PATH}:/workspace
-      - ./.claude:/home/node/.claude
-      - ./.claude-config:/home/node/.config/claude
+      # - ./.claude:/home/node/.claude
+      # - ./.claude-config:/home/node/.config/claude
+      - claude_deepseek_data:/home/node/.claude
+      - claude_deepseek_config:/home/node/.config/claude
     working_dir: /workspace
     stdin_open: true
     tty: true
     init: true
+volumes:
+  claude_deepseek_data:
+    name: claude_deepseek_data
+  claude_deepseek_config:
+    name: claude_deepseek_config

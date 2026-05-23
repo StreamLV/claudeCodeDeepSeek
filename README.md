@@ -26,15 +26,22 @@ docker compose run --rm claudecode_deepseek --continue
 
 ### Show list of sessions and choose one
 ```bash
-docker compose run --rm claudecode_deepseek --resume
+docker compose up -d
 ```
-### Start a new clean session
 ```bash
-docker compose run --rm claudecode_deepseek
+docker compose exec claudecode_deepseek claude
+```
+### resume last session
+```bash
+docker compose exec claudecode_deepseek claude --resume
 ```
 ### Start specific session by ID
 ```bash
-docker compose run --rm claudecode_deepseek --resume <session-id>
+docker compose exec claudecode_deepseek claude --resume <session-id>
+```
+### Start a new clean session (for one time run)
+```bash
+docker compose run --rm claudecode_deepseek
 ```
 
 ## Other Useful Commands
