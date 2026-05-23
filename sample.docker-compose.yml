@@ -22,12 +22,16 @@ services:
       # - ./.claude-config:/home/node/.config/claude
       - claude_deepseek_data:/home/node/.claude
       - claude_deepseek_config:/home/node/.config/claude
+      - claude_deepseek_local:/home/node/.local
     working_dir: /workspace
     stdin_open: true
     tty: true
     init: true
+    command: [ "sleep", "infinity" ]
 volumes:
   claude_deepseek_data:
     name: claude_deepseek_data
   claude_deepseek_config:
     name: claude_deepseek_config
+  claude_deepseek_local:
+    name: claude_deepseek_local

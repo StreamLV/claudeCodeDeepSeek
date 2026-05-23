@@ -19,18 +19,23 @@ docker compose build
 
 ## Run Commands
 
-### Continue last session (recommended)
-```bash
-docker compose run --rm claudecode_deepseek --continue
-```
-
-### Show list of sessions and choose one
 ```bash
 docker compose up -d
 ```
 ```bash
 docker compose exec claudecode_deepseek claude
 ```
+
+### Continue last session (recommended)
+```bash
+docker compose exec claudecode_deepseek claude --continue
+```
+
+### rum with params
+```bash
+docker compose exec claudecode_deepseek claude --dangerously-skip-permissions
+```
+
 ### resume last session
 ```bash
 docker compose exec claudecode_deepseek claude --resume

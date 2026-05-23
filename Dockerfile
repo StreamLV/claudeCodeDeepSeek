@@ -15,4 +15,4 @@ USER node
 
 WORKDIR /workspace
 
-ENTRYPOINT ["claude"]
+ENTRYPOINT ["bash"]
