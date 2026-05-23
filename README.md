@@ -83,11 +83,11 @@ docker compose exec claudecode_deepseek bash
 
 ## Project Structure
 ```
-├── Dockerfile <br>
-├── docker-compose.yml <br>
-├── .env <br>
-├── .claude-data/          # Claude sessions (saved here) <br>
-├── .claude-config/        # Claude configuration <br>
+├── Dockerfile
+├── docker-compose.yml
+├── .env
+├── .claude-data/          # Claude sessions (saved here)
+├── .claude-config/        # Claude configuration
 └── README.md
 ```
 **PROJECT_PATH** (mounted to `/workspace`)
