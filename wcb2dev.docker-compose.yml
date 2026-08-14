@@ -23,6 +23,7 @@ services:
       - claude_deepseek_data:/home/node/.claude
       - claude_deepseek_config:/home/node/.config/claude
       - claude_deepseek_local:/home/node/.local
+      - /var/run/docker.sock:/var/run/docker.sock  # ← Docker
     working_dir: /webcashbox2
     extra_hosts:
       - "wcb2dev.loc:host-gateway"
